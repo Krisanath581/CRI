@@ -1,10 +1,195 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
+
+
 * {
+    margin: 0;
+    padding: 0;
     font-family: 'Kanit', sans-serif;
+
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./logo/loginbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.form-search {
+    backdrop-filter: blur(25px) saturate(118%);
+    -webkit-backdrop-filter: blur(25px) saturate(118%);
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 20px;
+}
+
+.form-search>h2 {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.form-search>p {
+    /* text-align: center; */
+    margin-top: 5px;
+    color: #dbdbdb;
+}
+
+form {
+    margin: 20px 0;
+}
+
+.email,
+.password {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    margin: 10px 0;
+}
+
+.email label,
+.password label {
+    font-size: 1.2em;
+    color: #dfdfdf;
+}
+
+.inp-email,
+.inp-password {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 0.5px solid #f2f2ff; */
+    background-color: #dbdbdb9c;
+    height: 50px;
+    margin: 15px 0;
+}
+
+.inp-email i,
+.inp-password i {
+    font-size: 1em;
+    /* padding: 10px; */
+    outline: 0.5px solid #b2b2b2;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+}
+
+.inp-email input,
+.inp-password input {
+    font-size: 1.2em;
+    padding: 0 10px;
+    height: 100%;
+    width: 350px;
+    color: #f2f2ff;
+    background-color: #00000000;
+    outline: 0.5px solid #b2b2b2;
+    border: none;
+    transition: 0.4s;
+    border-radius: 0 5px 5px 0;
+}
+
+/* .inp-email i:hover {
+    font-size: 1em;
+    outline: 0.5px solid #000000;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+} */
+
+.inp-email input:focus,
+.inp-password input:focus {
+    outline: 1px solid rgb(2, 236, 253);
+    background-color: #111927;
+    color: cadetblue;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox input[type="checkbox"] {
+    /* appearance: none; */
+    width: 1.3em;
+    height: 1.3em;
+    background-color: #19202c;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"]:checked {
+    /* background-image: url(/images/check-square-fill.svg); */
+    background-position: center;
+    background-size: 100%;
+    /* opacity: 0.5; */
+}
+
+.inp-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-checkbox label {
+    margin-left: 5px;
+}
+
+.Lost-pass a {
+    text-decoration: none;
+
+}
+
+.Lost-pass a:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-login button {
+    padding: 5px 0;
+    width: 250px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 1px solid #868686;
+    background-color: rgba(255, 165, 0, 0.7);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login button:hover {
+    background-color: #111927;
+    color: cadetblue;
 }
 
 
-/* #navbar{
-    background-color: #ceb8b8;
-} */
+#createAccount a {
+    text-decoration: none;
+}
+
+#createAccount a:hover {
+    text-decoration: underline;
+}

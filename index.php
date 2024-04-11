@@ -1,9 +1,4 @@
-<?php 
-
-    session_start();
-    require_once 'config/db.php';
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,18 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="logo/favicon_cri.png">
+    <link rel="stylesheet" href="style.css">
     <title>CRI Download</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 
-    <div class="container">
-    <div class="text-center mt-3">
-            <img src="logo/cri.png" alt="" width="100" height="150">
-        </div>
-        <h3 class="mt-4">สมัครสมาชิก</h3>
+    <div class="form-search">
+        <h3 class="mt-2">เข้าสู่ระบบ</h3>
         <hr>
-        <form action="signup_db.php" method="post">
+        <form action="signin_db.php" method="post">
             <?php if(isset($_SESSION['error'])) { ?>
                 <div class="alert alert-danger" role="alert">
                     <?php 
@@ -40,39 +34,30 @@
                     ?>
                 </div>
             <?php } ?>
-            <?php if(isset($_SESSION['warning'])) { ?>
-                <div class="alert alert-warning" role="alert">
-                    <?php 
-                        echo $_SESSION['warning'];
-                        unset($_SESSION['warning']);
-                    ?>
-                </div>
-            <?php } ?>
-
-            <div class="mb-3">
-                <label for="firstname" class="form-label">First name</label>
-                <input type="text" class="form-control" name="firstname" aria-describedby="firstname">
-            </div>
-            <div class="mb-3">
-                <label for="lastname" class="form-label">Last name</label>
-                <input type="text" class="form-control" name="lastname" aria-describedby="lastname">
-            </div>
-            <div class="mb-3">
+            <div class="email">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" aria-describedby="email">
+                <div class="inp-email">
+                    <i class="bi bi-envelope-fill"></i>
+                    <!-- <input id="email" type="text" placeholder="exmple@companny.com"> -->
+                    <input id="email" type="email" class="form-control" name="email" aria-describedby="email" required>
+                </div>
+
             </div>
-            <div class="mb-3">
+            <div class="password">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password">
+                <div class="inp-password">
+                    <i class="bi bi-lock-fill"></i>
+                    <!-- <input id="password" type="text" placeholder="password"> -->
+                    <input id="password" type="password" class="form-control" name="password" required>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="confirm password" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" name="c_password">
+            <div class="btn-login">
+            <button type="submit" name="signin" class="btn btn-primary">Sign In</button>
             </div>
-            <button type="submit" name="signup" class="btn btn-primary">Sign Up</button>
+           
         </form>
         <hr>
-        <p>เป็นสมาชิกแล้วใช่ไหม คลิ๊กที่นี่เพื่อ <a href="signin.php">เข้าสู่ระบบ</a></p>
+        <p>ยังไม่เป็นสมาชิกใช่ไหม คลิ๊กที่นี่เพื่อ <a href="register.php">สมัครสมาชิก</a></p>
     </div>
     
 </body>

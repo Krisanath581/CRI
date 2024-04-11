@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+
+    session_start();
+    require_once 'config/db.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +18,12 @@
 <body>
 
     <div class="container">
-        <div class="text-center mt-3">
+    <div class="text-center mt-3">
             <img src="logo/cri.png" alt="" width="100" height="150">
         </div>
-        <h3 class="mt-2">เข้าสู่ระบบ</h3>
+        <h3 class="mt-4">สมัครสมาชิก</h3>
         <hr>
-        <form action="signin_db.php" method="post">
+        <form action="signup_db.php" method="post">
             <?php if(isset($_SESSION['error'])) { ?>
                 <div class="alert alert-danger" role="alert">
                     <?php 
@@ -35,6 +40,23 @@
                     ?>
                 </div>
             <?php } ?>
+            <?php if(isset($_SESSION['warning'])) { ?>
+                <div class="alert alert-warning" role="alert">
+                    <?php 
+                        echo $_SESSION['warning'];
+                        unset($_SESSION['warning']);
+                    ?>
+                </div>
+            <?php } ?>
+
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First name</label>
+                <input type="text" class="form-control" name="firstname" aria-describedby="firstname">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last name</label>
+                <input type="text" class="form-control" name="lastname" aria-describedby="lastname">
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" aria-describedby="email">
@@ -43,10 +65,14 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
-            <button type="submit" name="signin" class="btn btn-primary">Sign In</button>
+            <div class="mb-3">
+                <label for="confirm password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="c_password">
+            </div>
+            <button type="submit" name="signup" class="btn btn-primary">Sign Up</button>
         </form>
         <hr>
-        <p>ยังไม่เป็นสมาชิกใช่ไหม คลิ๊กที่นี่เพื่อ <a href="index.php">สมัครสมาชิก</a></p>
+        <p>เป็นสมาชิกแล้วใช่ไหม คลิ๊กที่นี่เพื่อ <a href="index.php">เข้าสู่ระบบ</a></p>
     </div>
     
 </body>
